@@ -1,0 +1,146 @@
+<!doctype html>
+<html th:fragment="layout (template, menu)">
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" type="image/x-icon" th:href="@{/resources/images/paws.png}">
+
+  <title>PetClinic </title>
+
+
+  <link th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/resources/css/petclinic.css}" />
+  <style>
+	
+	    /* Full height, margin removal, and background color for entire viewport */
+	    html, body {
+	      height: 100%;
+	      margin: 0;
+	      font-family: Arial, sans-serif;
+	    }
+
+	    /* Navbar styling */
+	    .navbar {
+	      display: flex;
+	      align-items: center;
+	      justify-content: space-between;
+	      background-color:  #F5DEB3; /* Slightly darker light brown for navbar */
+	      padding: 10px 20px;
+	      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	    }
+
+	    .navbar-logo img {
+	      height: 40px;
+	      width: auto;
+	    }
+
+	    .navbar-links {
+	      display: flex;
+	      gap: 20px;
+	    }
+
+	    .navbar-links a {
+	      color: #ffffff;
+	      text-decoration: none;
+	      font-size: 1.1em;
+	      font-weight: bold;
+	      padding: 8px 16px;
+	      transition: background-color 0.3s;
+	      border-radius: 5px;
+	    }
+
+	    .navbar-links a:hover {
+	      background-color: #8B4513; /* Dark brown on hover */
+	      color: #ffffff;
+	    }
+
+	    /* Image styling for full-width below navbar */
+	    .header-image-container {
+	      position: relative;
+	      width: 100%;
+	      height: 50vh;
+	      overflow: hidden;
+	    }
+
+	    .header-image-container img {
+	      width: 100%;
+	      height: 100%;
+	      object-fit: cover;
+	      opacity: 0.5;
+	    }
+
+	    /* Centered welcome message styling */
+	    .welcome-message {
+	      position: absolute;
+	      top: 50%;
+	      left: 50%;
+	      transform: translate(-50%, -50%);
+	      font-size: 3em;
+	      color: #ffffff;
+	      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	      text-align: center;
+	      z-index: 1;
+	    }
+
+	    /* Introduction styling */
+	    .intro {
+	      text-align: center;
+	      padding: 20px;
+	      font-size: 1.2em;
+	      max-width: 800px;
+	      margin: 20px auto;
+	    }
+	   /* Optional: Adjust logo size on smaller screens */
+	   @media (max-width: 740px) {
+	     .navbar-brand img {
+	       height: 300px; /* Smaller logo size for mobile screens */
+	     }
+	   }
+	 
+   </style>
+
+</head>
+
+<body>
+
+	<div class="navbar">
+	   <div class="navbar-logo">
+	     <img src="../static/resources/images/pet-logo3.png" th:src="@{/resources/images/pet-logo3.png}" alt="Clinic Logo">
+	   </div>
+
+	   <div class="navbar-links">
+	       <a th:href="@{/}">Home</a>
+	       <a th:href="@{/owners/find}">Find Owners</a>
+		   <a th:href="@{/vets.html}" class="nav-link">
+		           <span class="fa fa-th-list" aria-hidden="true"></span>
+		           Veterinarians
+		       </a>
+		   	   </div>
+	 </div>
+
+  <div class="container-fluid">
+    <div class="container xd-container">
+
+      <th:block th:insert="${template}" />
+
+      <br />
+      <br />
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script th:src="@{/webjars/bootstrap/5.3.3/dist/js/bootstrap.bundle.min.js}"></script>
+
+</body>
+
+</html>
